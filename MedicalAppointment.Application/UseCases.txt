@@ -1,0 +1,206 @@
+﻿4.1 Caso de Uso 1: Registro de Paciente
+• Descripción: El paciente se registra en el sistema proporcionando sus datos personales.
+• Actores: Paciente, Sistema.
+Preconditioners:
+1. El paciente debe tener acceso a un dispositivo con conexión a internet.
+2. El paciente no debe tener una cuenta existente en el sistema con el mismo correo
+electrónico.
+Flujo Básico:
+1. El paciente accede a la página de registro.
+2. El paciente ingresa su información (nombre, dirección, teléfono, correo electrónico,
+contraseña).
+3. El sistema verifica la información y crea una cuenta.
+4. El paciente recibe un correo de confirmación.
+
+Postcondiciones:
+1. La cuenta del paciente está creada y activada.
+2. El paciente puede iniciar sesión en el sistema.
+
+------------------------------------------------------
+
+4.2 Caso de Uso 2: Agendamiento de Cita
+• Descripción: Un paciente programa una cita con un médico.
+• Actores: Paciente, Médico, Sistema.
+Precondiciones:
+1. El paciente debe estar registrado e iniciar sesión en el sistema.
+2. El médico debe tener disponibilidad en su agenda.
+Flujo Básico:
+1. El paciente inicia sesión y selecciona "Agendar Cita".
+2. El paciente elige un médico y una fecha disponible.
+3. El sistema verifica la disponibilidad y confirma la cita.
+4. El paciente recibe un correo de confirmación de la cita.
+Postcondiciones:
+1. La cita se registra en la agenda del médico y del paciente.
+2. El paciente recibe una notificación de confirmación de la cita.
+
+
+---------------------------------------------------------------
+4.3 Caso de Uso 3: Cancelación de Cita
+• Descripción: Un paciente cancela una cita previamente agendada.
+• Actores: Paciente, Sistema.
+Precondiciones:
+1. El paciente debe haber iniciado sesión en el sistema.
+2. Debe existir una cita previamente agendada en el sistema.
+Flujo Básico:
+1. El paciente selecciona "Mis Citas" en el menú principal.
+2. El paciente elige la cita que desea cancelar.
+3. El paciente confirma la cancelación de la cita.
+4. El sistema actualiza la agenda del médico y elimina la cita.
+5. El paciente recibe un correo electrónico confirmando la cancelación.
+Postcondiciones:
+1. La cita se marca como cancelada en el sistema.
+2. El paciente y el médico reciben notificaciones de la cancelación.
+
+----------------------------------------------------------------
+
+4.4 Caso de Uso 4: Reprogramación de Cita
+• Descripción: Un paciente reprograma una cita previamente agendada.
+• Actores: Paciente, Médico, Sistema.
+Precondiciones:
+1. El paciente debe haber iniciado sesión en el sistema.
+2. Debe existir una cita previamente agendada en el sistema.
+3. Debe haber disponibilidad en la agenda del médico en una nueva fecha.
+Flujo Básico:
+1. El paciente selecciona "Mis Citas" en el menú principal.
+2. El paciente elige la cita que desea reprogramar.
+3. El paciente selecciona una nueva fecha y hora disponibles.
+4. El sistema verifica la disponibilidad y confirma la reprogramación.
+5. El paciente recibe un correo electrónico confirmando la nueva cita.
+6. El sistema actualiza la agenda del médico.
+Postcondiciones:
+1. La cita se actualiza en la agenda del paciente y del médico con la nueva fecha y
+hora.
+2. El paciente y el médico reciben notificaciones de la reprogramación.
+
+---------------------------------------------------------------
+
+4.5 Caso de Uso 5: Visualización de Historial de Citas
+Descripción: El paciente visualiza el historial de sus citas médicas pasadas y futuras.
+Actores: Paciente, Sistema.
+Precondiciones:
+1. El paciente debe haber iniciado sesión en el sistema.
+2. Debe existir al menos una cita registrada en el sistema.
+Flujo Básico:
+1. El paciente selecciona "Historial de Citas" en el menú principal.
+2. El sistema muestra una lista de todas las citas pasadas y futuras del paciente.
+3. El paciente puede seleccionar una cita específica para ver más detalles.
+Postcondiciones:
+• El paciente visualiza la información detallada de sus citas médicas.
+• No se realizan cambios en la base de datos.
+
+--------------------------------------------------------------
+
+4.6 Caso de Uso 6: Gestión de Disponibilidad del Médico
+Descripción: El médico gestiona su disponibilidad para la programación de citas.
+Actores: Médico, Sistema.
+Precondiciones:
+1. El médico debe haber iniciado sesión en el sistema.
+2. El médico debe tener citas o un calendario previamente configurado.
+Flujo Básico:
+1. El médico accede a la sección "Gestión de Disponibilidad" en el menú principal.
+2. El médico selecciona fechas y horas para habilitar o deshabilitar su disponibilidad.
+3. El sistema actualiza la disponibilidad del médico en tiempo real.
+4. Los pacientes ven la nueva disponibilidad al intentar agendar citas.
+Postcondiciones:
+• La disponibilidad del médico se actualiza en el sistema.
+• Los pacientes pueden ver y agendar citas según la nueva disponibilidad del médico.
+
+---------------------------------------------------------------
+
+4.7 Caso de Uso 7: Visualización de la Agenda del Médico
+Descripción: El médico visualiza su agenda de citas programadas.
+Actores: Médico, Sistema.
+Precondiciones:
+1. El médico debe haber iniciado sesión en el sistema.
+2. Debe haber citas agendadas en el sistema.
+Flujo Básico:
+1. El médico accede a la sección "Mi Agenda" en el menú principal.
+2. El sistema muestra una lista o calendario con las citas programadas, incluyendo
+información del paciente y la hora de la cita.
+3. El médico puede seleccionar una cita para ver más detalles o realizar acciones
+(reprogramar, cancelar, etc.).
+Postcondiciones:
+1. El médico visualiza su agenda completa y actualizada.
+2. No se realizan cambios en la base de datos a menos que el médico tome una
+acción adicional (como reprogramar o cancelar una cita).
+
+-------------------------------------------------------------
+
+4.8 Caso de Uso 8: Confirmación o Rechazo de Citas
+Descripción: El médico confirma o rechaza una cita solicitada por un paciente.
+Actores: Médico, Paciente, Sistema.
+Precondiciones:
+• El médico debe haber iniciado sesión en el sistema.
+• Debe existir una solicitud de cita pendiente en el sistema.
+Flujo Básico:
+1. El médico accede a la sección "Solicitudes de Citas" en el menú principal.
+2. El médico revisa la solicitud de cita (fecha, hora, y paciente).
+3. El médico elige confirmar o rechazar la cita.
+4. El sistema notifica al paciente sobre la decisión del médico.
+5. Si la cita es confirmada, se añade a la agenda del médico y del paciente.
+6. Si la cita es rechazada, el paciente es notificado y puede seleccionar una nueva
+fecha.
+Postcondiciones:
+• La solicitud de cita es procesada y se actualiza la agenda del médico y del paciente.
+• El paciente recibe una notificación de la decisión del médico.
+
+------------------------------------------------------------
+
+4.9 Caso de Uso 9: Actualización de Información del Paciente
+Descripción: El médico actualiza la información médica del paciente después de una
+consulta.
+Actores: Médico, Sistema.
+Precondiciones:
+1. El médico debe haber iniciado sesión en el sistema.
+2. Debe existir una cita asociada con el paciente.
+Flujo Básico:
+1. El médico accede a la sección "Historial del Paciente" desde su agenda de citas.
+2. El médico selecciona la cita correspondiente y accede a la información médica del
+paciente.
+3. El médico actualiza los datos (diagnóstico, tratamiento, notas, etc.).
+4. El sistema guarda la información actualizada en la base de datos.
+Postcondiciones:
+• La información médica del paciente se actualiza y se almacena en el sistema.
+• El historial del paciente refleja los cambios realizados por el médico.
+
+-------------------------------------------------------
+
+4.10 Caso de Uso 10: Envío de Recordatorios a Pacientes
+Descripción: El médico programa el envío de recordatorios específicos a pacientes,
+además de los automáticos.
+Actores: Médico, Paciente, Sistema.
+Precondiciones:
+• El médico debe haber iniciado sesión en el sistema.
+• Debe existir una cita futura o una necesidad de seguimiento con un paciente.
+Flujo Básico:
+1. El médico accede a la cita específica desde "Mi Agenda".
+2. El médico selecciona la opción de "Enviar Recordatorio".
+3. El médico redacta un mensaje personalizado o selecciona una plantilla predefinida.
+4. El sistema envía el recordatorio al paciente en la fecha y hora programadas.
+Postcondiciones:
+1. El paciente recibe el recordatorio programado por el médico.
+2. El recordatorio se registra en el sistema.
+
+-----------------------------------------------------
+
+4.11 Caso de Uso 11: Visualización de Reportes de Citas
+Descripción: El médico visualiza reportes detallados sobre sus citas realizadas,
+canceladas y pendientes.
+Actores: Médico, Sistema.
+Precondiciones:
+1. El médico debe haber iniciado sesión en el sistema.
+2. Debe haber datos de citas registrados en el sistema.
+Flujo Básico:
+1. El médico accede a la sección "Reportes de Citas" en el menú principal.
+2. El médico selecciona el tipo de reporte que desea ver (citas realizadas, canceladas,
+etc.).
+3. El sistema genera el reporte y lo presenta en pantalla.
+4. El médico puede exportar el reporte en un formato específico (PDF, Excel, etc.).
+Postcondiciones:
+1. El médico visualiza el reporte detallado y puede tomar decisiones basadas en la
+información proporcionada.
+2. El reporte se puede descargar o imprimir según la necesidad.
+
+
+
+
