@@ -20,7 +20,5 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
             _logger = logger;
             _configuration = configuration;
         }
-
-
     }
 }
