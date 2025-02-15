@@ -15,7 +15,7 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
 
         public AppointmentsRepository(MedicalAppointmentContext context, ILogger<AppointmentsRepository> logger, IConfiguration configuration) : base(context)
         {
-
+            //subes?
             _context = context;
             _logger = logger;
             _configuration = configuration;
