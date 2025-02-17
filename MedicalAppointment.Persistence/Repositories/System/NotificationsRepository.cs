@@ -24,34 +24,5 @@ namespace MedicalAppointment.Persistence.Repositories.System
 
         }
 
-        public override Task<bool> ExistsAsync(Expression<Func<Notifications, bool>> filter)
-        {
-            return base.ExistsAsync(filter);
-        }
-
-        public override Task<List<Notifications>> GetAllAsync()
-        {
-            return base.GetAllAsync();
-        }
-
-        public override Task<OperationResult> GetAllAsync(Expression<Func<Notifications, bool>> filter)
-        {
-            return base.GetAllAsync(filter);
-        }
-
-        public override Task<Notifications> GetEntityByIdAsync(int id)
-        {
-            return base.GetEntityByIdAsync(id);
-        }
-
-        public override Task<OperationResult> SaveEntityAsync(Notifications entity)
-        {
-            return base.SaveEntityAsync(entity);
-        }
-
-        public override Task<OperationResult> UpdateEntityAsync(Notifications entity)
-        {
-            return base.UpdateEntityAsync(entity);
-        }
     }
 }

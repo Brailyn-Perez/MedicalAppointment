@@ -25,34 +25,5 @@ namespace MedicalAppointment.Persistence.Repositories.Insurance
 
         }
 
-        public override Task<bool> ExistsAsync(Expression<Func<NetworkType, bool>> filter)
-        {
-            return base.ExistsAsync(filter);
-        }
-
-        public override Task<List<NetworkType>> GetAllAsync()
-        {
-            return base.GetAllAsync();
-        }
-
-        public override Task<OperationResult> GetAllAsync(Expression<Func<NetworkType, bool>> filter)
-        {
-            return base.GetAllAsync(filter);
-        }
-
-        public override Task<NetworkType> GetEntityByIdAsync(int id)
-        {
-            return base.GetEntityByIdAsync(id);
-        }
-
-        public override Task<OperationResult> SaveEntityAsync(NetworkType entity)
-        {
-            return base.SaveEntityAsync(entity);
-        }
-
-        public override Task<OperationResult> UpdateEntityAsync(NetworkType entity)
-        {
-            return base.UpdateEntityAsync(entity);
-        }
     }
 }
