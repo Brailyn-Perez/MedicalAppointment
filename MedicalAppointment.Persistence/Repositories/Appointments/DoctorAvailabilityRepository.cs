@@ -30,7 +30,7 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
             try
             {
                 var query = await _context.DoctorAvailabilities
-                     .Where(d => d.Id == doctorId).ToListAsync();
+                     .Where(d => d.DoctorID == doctorId).ToListAsync();
 
                 result.Data = query;
                         

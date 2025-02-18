@@ -6,6 +6,7 @@ using MedicalAppointment.Domain.Entities.System;
 using MedicalAppointment.Domain.Entities.User.Users;
 using MedicalAppointment.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace MedicalAppointment.Persistence.Context
 {
@@ -33,6 +34,59 @@ namespace MedicalAppointment.Persistence.Context
         public DbSet<Doctors> Doctors { get; set; }
         public DbSet<Patients> Patients { get; set; }
         public DbSet<Users> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Appointments>()
+                .HasOne(a => a.Patient)
+                .WithMany()
+                .HasForeignKey(a => a.PatientID);
+
+            modelBuilder.Entity<Appointments>()
+                .HasOne(a => a.Doctor)
+                .WithMany()
+                .HasForeignKey(a => a.DoctorID);
+
+            modelBuilder.Entity<DoctorAvailability>()
+                .HasOne(d => d.Doctor)
+                .WithMany()
+                .HasForeignKey(d => d.DoctorID);
+
+            modelBuilder.Entity<InsuranceProviders>()
+                .HasOne(i => i.NetworkType)
+                .WithMany()
+                .HasForeignKey(i => i.NetworkTypeId);
+
+            modelBuilder.Entity<MedicalRecords>()
+                .HasOne(m => m.Patient)
+                .WithMany()
+                .HasForeignKey(m => m.PatientID);
+
+            modelBuilder.Entity<MedicalRecords>()
+                .HasOne(m => m.Doctor)
+                .WithMany()
+                .HasForeignKey(m => m.DoctorID);
+
+            modelBuilder.Entity<Doctors>()
+                .HasOne(d => d.Specialty)
+                .WithMany()
+                .HasForeignKey(d => d.SpecialtyID);
+
+            modelBuilder.Entity<Doctors>()
+                .HasOne(d => d.AvailabilityMode)
+                .WithMany()
+                .HasForeignKey(d => d.AvailabilityModeId);
+
+            modelBuilder.Entity<Patients>()
+                .HasOne(p => p.InsuranceProvider)
+                .WithMany()
+                .HasForeignKey(p => p.InsuranceProviderID);
+
+            modelBuilder.Entity<Users>()
+                .HasOne(u => u.Role)
+                .WithMany()
+                .HasForeignKey(u => u.RoleID);
+        }
 
 
     }

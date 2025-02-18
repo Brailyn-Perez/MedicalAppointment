@@ -8,9 +8,9 @@ namespace MedicalAppointment.Domain.Entities.Insurance
     {
         [Column("NetworkTypeid")]
         [Key]
-        public int Id { get; set; }
+        public int NetworkTypeId { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
     }
 }

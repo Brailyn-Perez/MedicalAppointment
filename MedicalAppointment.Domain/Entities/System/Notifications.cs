@@ -7,9 +7,11 @@ namespace MedicalAppointment.Domain.Entities.System
     {
         [Column("NotificationID")]
         [Key]
-        public int Id { get; set; }
+        public int NotificationID { get; set; }
         public int UserID { get; set; }
         public string Message { get; set; }
-        public DateTime SentAt { get; set; }
+        public DateTime? SentAt { get; set; } 
+
+        public virtual Users.Users User { get; set; }
     }
 }

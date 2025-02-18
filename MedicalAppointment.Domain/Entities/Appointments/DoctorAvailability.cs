@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MedicalAppointment.Domain.Entities.User.Users;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedicalAppointment.Domain.Entities.Appointments
@@ -7,11 +8,13 @@ namespace MedicalAppointment.Domain.Entities.Appointments
     {
         [Column("AvailabilityID")]
         [Key]
-        public int Id { get; set; }
+        public int AvailabilityID { get; set; }
         public int DoctorID { get; set; }
         public DateTime AvailableDate { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
+
+        public virtual Doctors Doctor { get; set; }
 
     }
 }

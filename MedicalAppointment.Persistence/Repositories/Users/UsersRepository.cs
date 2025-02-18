@@ -21,5 +21,20 @@ namespace MedicalAppointment.Persistence.Repositories.Users
             _logger = logger;
             _configuration = configuration;
         }
+
+        public Task<OperationResult> GetUserByEmailAsync(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OperationResult> GetUsersByRoleAsync(int roleId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OperationResult> UpdateUserAsync(Domain.Entities.Users.Users user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -6,9 +6,8 @@ namespace MedicalAppointment.Domain.Entities.Insurance
 {
     public class InsuranceProviders : IsActive
     {
-        [Column("InsuranceProviderID")]
         [Key]
-        public int Id { get; set; }
+        public int InsuranceProviderID { get; set; }
         public string Name { get; set; }
         public string ContactNumber { get; set; }
         public string Email { get; set; }
@@ -21,10 +20,13 @@ namespace MedicalAppointment.Domain.Entities.Insurance
         public string CoverageDetails { get; set; }
         public string? LogoUrl { get; set; }
         public bool IsPreferred { get; set; }
-        public int NetWorkTypeId { get; set; }
+        public int NetworkTypeId { get; set; }
         public string? CustomerSupportContact { get; set; }
         public string? AcceptedRegions { get; set; }
-        public decimal? MaxCoverageAmount { get; set; }
+        public decimal? MaxCoverageAmount { get; set; }  
+
+
+        public virtual NetworkType NetworkType { get; set; }
 
     }
 
