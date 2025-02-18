@@ -1,6 +1,7 @@
 ﻿
 using MedicalAppointment.Domain.Base;
 using MedicalAppointment.Domain.Entities.Insurance;
+using MedicalAppointment.Domain.Entities.User.Users;
 using MedicalAppointment.Persistence.Base;
 using MedicalAppointment.Persistence.Context;
 using MedicalAppointment.Persistence.Interfaces.Insurance;
@@ -24,5 +25,9 @@ namespace MedicalAppointment.Persistence.Repositories.Insurance
             _configuration = configuration;
         }
 
+        public Task<OperationResult> AssociatePatient(Patients patients, InsuranceProviders providers)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using MedicalAppointment.Domain.Base;
+using MedicalAppointment.Domain.Entities.Medical;
 using MedicalAppointment.Domain.Entities.User.Users;
 using MedicalAppointment.Persistence.Base;
 using MedicalAppointment.Persistence.Context;
@@ -23,5 +24,9 @@ namespace MedicalAppointment.Persistence.Repositories.Users
             _configuration = configuration;
         }
 
+        public Task<OperationResult> AssociateDoctors(IEnumerable<Specialties> specialties, Doctors doctors)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
