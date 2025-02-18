@@ -22,17 +22,17 @@ namespace MedicalAppointment.Persistence.Repositories.Users
             _configuration = configuration;
         }
 
-        public Task<OperationResult> GetUserByEmailAsync(string email)
+        public Task<OperationResult> Login(string Email, string Password)
         {
             throw new NotImplementedException();
         }
 
-        public Task<OperationResult> GetUsersByRoleAsync(int roleId)
+        public Task<OperationResult> RecoverPassword()
         {
             throw new NotImplementedException();
         }
 
-        public Task<OperationResult> UpdateUserAsync(Domain.Entities.Users.Users user)
+        public Task<OperationResult> RegisterUsers(Domain.Entities.Users.Users users)
         {
             throw new NotImplementedException();
         }

@@ -6,8 +6,8 @@ namespace MedicalAppointment.Persistence.Interfaces.Users
 {
     public interface IUsersRepository : IBaseRepository<Domain.Entities.Users.Users>
     {
-        Task<OperationResult> GetUserByEmailAsync(string email);
-        Task<OperationResult> GetUsersByRoleAsync(int roleId);
-        Task<OperationResult> UpdateUserAsync(Domain.Entities.Users.Users user);
+        public Task<OperationResult> RegisterUsers(Domain.Entities.Users.Users users);
+        public Task<OperationResult> Login(string Email , string Password);
+        public Task<OperationResult> RecoverPassword();
     }
 }

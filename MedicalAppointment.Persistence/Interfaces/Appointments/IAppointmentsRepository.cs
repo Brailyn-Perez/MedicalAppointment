@@ -5,8 +5,10 @@ namespace MedicalAppointment.Persistence.Interfaces.Appointments
 {
     public interface IAppointmentsRepository : IBaseRepository<Domain.Entities.Appointments.Appointments>
     {
-        Task<OperationResult> GetAppointmentsByPatientAsync(int patientId);
-        Task<OperationResult> GetAppointmentsByDoctorAsync(int doctorId);
-        Task<OperationResult> CancelAppointmentAsync(int appointmentId);
+        public Task<OperationResult> ApproveAppointment(Domain.Entities.Appointments.Appointments appointments);
+        public Task<OperationResult> RejectAppointment(Domain.Entities.Appointments.Appointments appointments);
+        public Task<OperationResult> RescheduleAppointment(Domain.Entities.Appointments.Appointments appointments);
+        public Task<OperationResult> CancelAppointment();
+        public Task<OperationResult> GetAppointmentHistory();
     }
 }

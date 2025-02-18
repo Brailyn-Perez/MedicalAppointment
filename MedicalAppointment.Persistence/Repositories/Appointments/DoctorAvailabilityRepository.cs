@@ -24,33 +24,14 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
             _configuration = configuration;
         }
 
-        public async Task<OperationResult> GetAvailabilityByDoctorAsync(int doctorId)
+        public Task<OperationResult> GetAvailabilityByDoctorAsync(int doctorId)
         {
-            OperationResult result = new OperationResult();
-            try
-            {
-                var query = await _context.DoctorAvailabilities
-                     .Where(d => d.DoctorID == doctorId).ToListAsync();
-
-                result.Data = query;
-                        
-            }
-            catch (Exception ex)
-            {
-                result.Message = _configuration["ErrorDoctorAvailabilityRepository:GetAvailabilityByDoctorAsync"];
-                result.Success = false;
-                _logger.LogError(result.Message, ex.ToString());
-
-            }
-
-
-            return result;
+            throw new NotImplementedException();
         }
 
-        public async Task SetDoctorAvailabilityAsync(DoctorAvailability availability)
+        public Task<OperationResult> SetDoctorAvailabilityAsync(DoctorAvailability availability)
         {
-            _context.DoctorAvailabilities.Add(availability);
-            await _context.SaveChangesAsync();
+            throw new NotImplementedException();
         }
     }
 }

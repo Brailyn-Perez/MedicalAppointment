@@ -24,69 +24,29 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
             _configuration = configuration;
         }
 
-        public async Task<OperationResult> CancelAppointmentAsync(int Id)
+        public Task<OperationResult> ApproveAppointment(Domain.Entities.Appointments.Appointments appointments)
         {
-            OperationResult result = new OperationResult();
-            try
-            {
-                var appointment = await _context.Appointments.FindAsync(Id);
-
-                if (appointment != null)
-                {
-                    appointment.StatusID = 2;
-                    await _context.SaveChangesAsync();
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                result.Message = _configuration["ErrorAppointmentsRepository:CancelAppointmentAsync"];
-                result.Success = false;
-                _logger.LogError(result.Message, ex.ToString());
-            }
-            return result;
+            throw new NotImplementedException();
         }
 
-        public async Task<OperationResult> GetAppointmentsByDoctorAsync(int doctorId)
+        public Task<OperationResult> CancelAppointment()
         {
-            OperationResult result = new OperationResult();
-            try
-            {
-                var query = _context.Appointments
-                            .Where(a => a.DoctorID == doctorId)
-                            .Include(a => a.PatientID)
-                            .ToListAsync();
-
-                result.Data = query;
-            }
-            catch (Exception ex)
-            {
-                result.Message = _configuration["ErrorAppointmentsRepository:CancelAppointmentAsync"];
-                result.Success = false;
-                _logger.LogError(result.Message, ex.ToString());
-            }
-            return result;
+            throw new NotImplementedException();
         }
 
-        public async Task<OperationResult> GetAppointmentsByPatientAsync(int patientId)
+        public Task<OperationResult> GetAppointmentHistory()
         {
-            OperationResult result = new OperationResult();
-            try
-            {
-                var query = _context.Appointments
-                             .Where(a => a.PatientID == patientId)
-                             .Include(a => a.DoctorID)
-                              .ToListAsync();
-                result.Data = query;
-            }
-            catch (Exception ex)
-            {
-                result.Message = _configuration["ErrorAppointmentsRepository:CancelAppointmentAsync"];
-                result.Success = false;
-                _logger.LogError(result.Message, ex.ToString());
-            }
-            return result;
+            throw new NotImplementedException();
+        }
+
+        public Task<OperationResult> RejectAppointment(Domain.Entities.Appointments.Appointments appointments)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OperationResult> RescheduleAppointment(Domain.Entities.Appointments.Appointments appointments)
+        {
+            throw new NotImplementedException();
         }
     }
 }
