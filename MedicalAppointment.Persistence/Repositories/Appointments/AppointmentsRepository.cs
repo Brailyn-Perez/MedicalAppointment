@@ -26,7 +26,7 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
 
         public Task<OperationResult> ApproveAppointment(Domain.Entities.Appointments.Appointments appointments)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); 
         }
 
         public Task<OperationResult> CancelAppointment()
