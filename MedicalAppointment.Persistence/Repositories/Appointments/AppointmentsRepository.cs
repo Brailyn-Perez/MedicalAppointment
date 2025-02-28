@@ -2,10 +2,8 @@
 using MedicalAppointment.Persistence.Base;
 using MedicalAppointment.Persistence.Context;
 using MedicalAppointment.Persistence.Interfaces.Appointments;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System.Linq.Expressions;
 
 namespace MedicalAppointment.Persistence.Repositories.Appointments
 {
@@ -24,29 +22,24 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
             _configuration = configuration;
         }
 
-        public Task<OperationResult> ApproveAppointment(Domain.Entities.Appointments.Appointments appointments)
+        public override Task<OperationResult> SaveEntityAsync(Domain.Entities.Appointments.Appointments entity)
         {
-            throw new NotImplementedException(); 
+            return base.SaveEntityAsync(entity);
         }
 
-        public Task<OperationResult> CancelAppointment()
+        public override Task<OperationResult> UpdateEntityAsync(Domain.Entities.Appointments.Appointments entity)
         {
-            throw new NotImplementedException();
+            return base.UpdateEntityAsync(entity);
         }
 
-        public Task<OperationResult> GetAppointmentHistory()
+        public override Task<List<Domain.Entities.Appointments.Appointments>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return base.GetAllAsync();
         }
 
-        public Task<OperationResult> RejectAppointment(Domain.Entities.Appointments.Appointments appointments)
+        public override Task<OperationResult> GetEntityByIdAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<OperationResult> RescheduleAppointment(Domain.Entities.Appointments.Appointments appointments)
-        {
-            throw new NotImplementedException();
+            return base.GetEntityByIdAsync(id);
         }
     }
 }

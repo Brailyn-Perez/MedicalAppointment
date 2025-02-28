@@ -9,9 +9,6 @@ namespace MedicalAppointment.Domain.Entities.Insurance
     {
         [Column("NetworkTypeid")]
         [Key]
-        [NotNull]
-        [Range(1,int.MaxValue)]
-        [Required]
         public int NetworkTypeId { get; set; }
         [Required]
         [NotNull]

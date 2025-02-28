@@ -6,8 +6,6 @@ namespace MedicalAppointment.Persistence.Interfaces.Appointments
 {
     public interface IDoctorAvailabilityRepository : IBaseRepository<DoctorAvailability>
     {
-        Task<OperationResult> GetAvailabilityByDoctorAsync(int doctorId);
-        Task<OperationResult> SetDoctorAvailabilityAsync(DoctorAvailability availability);
 
     }
 }

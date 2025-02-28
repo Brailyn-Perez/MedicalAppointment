@@ -24,14 +24,5 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
             _configuration = configuration;
         }
 
-        public Task<OperationResult> GetAvailabilityByDoctorAsync(int doctorId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<OperationResult> SetDoctorAvailabilityAsync(DoctorAvailability availability)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

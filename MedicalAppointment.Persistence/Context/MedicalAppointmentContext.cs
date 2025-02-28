@@ -1,12 +1,10 @@
-﻿
-using MedicalAppointment.Domain.Entities.Appointments;
+﻿using MedicalAppointment.Domain.Entities.Appointments;
 using MedicalAppointment.Domain.Entities.Insurance;
 using MedicalAppointment.Domain.Entities.Medical;
 using MedicalAppointment.Domain.Entities.System;
 using MedicalAppointment.Domain.Entities.User.Users;
 using MedicalAppointment.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
-using System.Numerics;
 
 namespace MedicalAppointment.Persistence.Context
 {
@@ -38,51 +36,79 @@ namespace MedicalAppointment.Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointments>()
-                .HasOne(a => a.Patient)
-                .WithMany()
-                .HasForeignKey(a => a.PatientID);
+            .ToTable("Appointments", "appointments")
+            .HasOne(a => a.Patient)
+            .WithMany()
+            .HasForeignKey(a => a.PatientID);
 
             modelBuilder.Entity<Appointments>()
-                .HasOne(a => a.Doctor)
-                .WithMany()
-                .HasForeignKey(a => a.DoctorID);
+            .ToTable("Appointments", "appointments")
+            .HasOne(a => a.Doctor)
+            .WithMany()
+            .HasForeignKey(a => a.DoctorID);
 
             modelBuilder.Entity<DoctorAvailability>()
-                .HasOne(d => d.Doctor)
-                .WithMany()
-                .HasForeignKey(d => d.DoctorID);
+            .ToTable("DoctorAvailability", "appointments")
+            .HasOne(d => d.Doctor)
+            .WithMany()
+            .HasForeignKey(d => d.DoctorID);
 
             modelBuilder.Entity<InsuranceProviders>()
-                .HasOne(i => i.NetworkType)
-                .WithMany()
-                .HasForeignKey(i => i.NetworkTypeId);
+            .ToTable("InsuranceProviders", "Insurance")
+            .HasOne(i => i.NetworkType)
+            .WithMany()
+            .HasForeignKey(i => i.NetworkTypeId);
+
+            modelBuilder.Entity<NetworkType>()
+            .ToTable("NetworkType", "Insurance");
+
+            modelBuilder.Entity<AvailabilityModes>()
+                .ToTable("AvailabilityModes", "medical");
 
             modelBuilder.Entity<MedicalRecords>()
+                .ToTable("MedicalRecords", "medical")
                 .HasOne(m => m.Patient)
                 .WithMany()
                 .HasForeignKey(m => m.PatientID);
 
             modelBuilder.Entity<MedicalRecords>()
+                .ToTable("MedicalRecords", "medical")
                 .HasOne(m => m.Doctor)
                 .WithMany()
                 .HasForeignKey(m => m.DoctorID);
 
+            modelBuilder.Entity<Specialties>()
+                .ToTable("Specialties", "medical");
+
+            modelBuilder.Entity<Notifications>()
+                .ToTable("Notifications", "system");
+
+            modelBuilder.Entity<Roles>()
+                .ToTable("Roles", "system");
+
+            modelBuilder.Entity<Status>()
+                .ToTable("Status", "system");
+
             modelBuilder.Entity<Doctors>()
+                .ToTable("Doctors", "users")
                 .HasOne(d => d.Specialty)
                 .WithMany()
                 .HasForeignKey(d => d.SpecialtyID);
 
             modelBuilder.Entity<Doctors>()
+                .ToTable("Doctors", "users")
                 .HasOne(d => d.AvailabilityMode)
                 .WithMany()
                 .HasForeignKey(d => d.AvailabilityModeId);
 
             modelBuilder.Entity<Patients>()
+                .ToTable("Patients", "users")
                 .HasOne(p => p.InsuranceProvider)
                 .WithMany()
                 .HasForeignKey(p => p.InsuranceProviderID);
 
             modelBuilder.Entity<Users>()
+                .ToTable("Users", "users")
                 .HasOne(u => u.Role)
                 .WithMany()
                 .HasForeignKey(u => u.RoleID);

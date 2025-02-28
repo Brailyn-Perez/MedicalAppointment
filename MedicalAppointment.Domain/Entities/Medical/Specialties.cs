@@ -9,10 +9,7 @@ namespace MedicalAppointment.Domain.Entities.Medical
     {
         [Column("SpecialtyID")]
         [Key]
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
-        public int Id { get; set; }
+        public Int16 Id { get; set; }
         [Required]
         [NotNull]
         [MaxLength(100)]

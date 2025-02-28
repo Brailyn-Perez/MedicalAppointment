@@ -9,10 +9,7 @@ namespace MedicalAppointment.Domain.Entities.Medical
     {
         [Column("SAvailabilityModeID")]
         [Key]
-        [Required]
-        [Range(1, int.MaxValue)]
-        [NotNull]
-        public int Id { get; set; }
+        public Int16 Id { get; set; }
         [Required]
         [NotNull]
         [MaxLength(100)]

@@ -19,23 +19,33 @@ namespace MedicalAppointment.Persistence.Base
             Entity = _Context.Set<TEntity>();
         }
 
-        public virtual async Task<TEntity> GetEntityByIdAsync(int id)
+        public virtual async Task<OperationResult> GetEntityByIdAsync(int id)
         {
-            return await Entity.FindAsync(id);
+            Result = BaseValidator<TEntity>.ValidateID(id);
+            if (Result.Success)
+            {
+                Result.Data = await Entity.FindAsync(id);
+                Result.Success = true;
+            }
+
+            return Result;
         }
 
         public virtual async Task<OperationResult> UpdateEntityAsync(TEntity entity)
         {
             try
             {
-                var validationResults = ValidateEntity(entity);
-                if (validationResults.Any())
+                Result = await BaseValidator<TEntity>.ValidateNull(entity);
+                if (Result.Success)
                 {
-                    Result.Success = false;
-                    Result.Message = string.Join("; ", validationResults);
-                    return Result;
+                    var validationResults = ValidateEntity(entity);
+                    if (validationResults.Any())
+                    {
+                        Result.Success = false;
+                        Result.Message = string.Join("; ", validationResults);
+                        return Result;
+                    }
                 }
-
                 Entity.Update(entity);
                 await _Context.SaveChangesAsync();
                 Result.Success = true;
@@ -53,14 +63,17 @@ namespace MedicalAppointment.Persistence.Base
         {
             try
             {
-                var validationResults = ValidateEntity(entity);
-                if (validationResults.Any())
+                Result = await BaseValidator<TEntity>.ValidateNull(entity);
+                if (Result.Success)
                 {
-                    Result.Success = false;
-                    Result.Message = string.Join("; ", validationResults);
-                    return Result;
+                    var validationResults = ValidateEntity(entity);
+                    if (validationResults.Any())
+                    {
+                        Result.Success = false;
+                        Result.Message = string.Join("; ", validationResults);
+                        return Result;
+                    }
                 }
-
                 Entity.Add(entity);
                 await _Context.SaveChangesAsync();
                 Result.Success = true;
@@ -68,7 +81,7 @@ namespace MedicalAppointment.Persistence.Base
             catch (Exception ex)
             {
                 Result.Success = false;
-                Result.Message = "Error ingresando los datos.";
+                Result.Message = $"Error ingresando los datos.{ex.Message} ";
             }
 
             return Result;

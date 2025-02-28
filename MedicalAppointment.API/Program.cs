@@ -1,4 +1,8 @@
 
+using MedicalAppointment.IOC.Services.API;
+using MedicalAppointment.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace MedicalAppointment.API
 {
     public class Program
@@ -13,6 +17,12 @@ namespace MedicalAppointment.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<MedicalAppointmentContext>(options => options.UseSqlServer(
+            builder.Configuration.GetConnectionString("MedicalAppoitmentDB")));
+
+
+            builder.Services.AddAppointmentDependency();
 
             var app = builder.Build();
 

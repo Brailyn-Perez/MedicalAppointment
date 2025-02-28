@@ -8,6 +8,5 @@ namespace MedicalAppointment.Persistence.Interfaces.Users
 {
     public interface IDoctorsRepository : IBaseRepository<Doctors>
     {
-        public Task<OperationResult> AssociateDoctors(IEnumerable<Specialties> specialties, Doctors doctors);
     }
 }

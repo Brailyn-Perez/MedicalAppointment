@@ -10,18 +10,8 @@ namespace MedicalAppointment.Domain.Entities.User.Users
     {
         [Column("DoctorID")]
         [Key]
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int Id { get; set; }
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
-        public int DoctorID { get; set; }
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
-        public int SpecialtyID { get; set; }
+        public Int16 SpecialtyID { get; set; }
         [Required]
         [NotNull]
         [MinLength(5)]
@@ -39,11 +29,10 @@ namespace MedicalAppointment.Domain.Entities.User.Users
         [NotNull]
         public string Education { get; set; }
         public string? Bio { get; set; }
-        [MaxLength(10)]
         public decimal? ConsultationFee { get; set; }
         [MaxLength(255)]
         public string? ClinicAddress { get; set; }
-        public int? AvailabilityModeId { get; set; }  
+        public Int16 AvailabilityModeId { get; set; }  
         public DateTime LicenseExpirationDate { get; set; }
 
 

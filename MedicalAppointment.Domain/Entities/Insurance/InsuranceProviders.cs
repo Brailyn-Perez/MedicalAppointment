@@ -8,9 +8,6 @@ namespace MedicalAppointment.Domain.Entities.Insurance
     public class InsuranceProviders : IsActive
     {
         [Key]
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int InsuranceProviderID { get; set; }
         [Required]
         [NotNull]
@@ -50,15 +47,11 @@ namespace MedicalAppointment.Domain.Entities.Insurance
         [NotNull]
         [Required]
         public bool IsPreferred { get; set; }
-        [NotNull]
-        [Required]
-        [Range(1, int.MaxValue)]
         public int NetworkTypeId { get; set; }
         [MaxLength(15)]
         public string? CustomerSupportContact { get; set; }
         [MaxLength(250)]
         public string? AcceptedRegions { get; set; }
-        [MaxLength(10)]
         public decimal? MaxCoverageAmount { get; set; }  
 
 

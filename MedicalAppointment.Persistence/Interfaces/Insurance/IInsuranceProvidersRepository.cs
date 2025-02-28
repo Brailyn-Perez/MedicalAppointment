@@ -8,6 +8,5 @@ namespace MedicalAppointment.Persistence.Interfaces.Insurance
 {
     public interface IInsuranceProvidersRepository: IBaseRepository<InsuranceProviders>
     {
-        public Task<OperationResult> AssociatePatient(Patients patients , InsuranceProviders providers);
     }
 }

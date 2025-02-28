@@ -10,17 +10,8 @@ namespace MedicalAppointment.Domain.Entities.Medical
     {
         [Column("RecordID")]
         [Key]
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int RecordID { get; set; }
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int PatientID { get; set; }
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int DoctorID { get; set; }
         [Required]
         [NotNull]

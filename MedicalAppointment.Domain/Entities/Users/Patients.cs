@@ -10,17 +10,12 @@ namespace MedicalAppointment.Domain.Entities.User.Users
     {
         [Column("PatientID")]
         [Key]
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int PatientID { get; set; }
         [Required]
         [NotNull]
         public DateTime DateOfBirth { get; set; }
         [Required]
         [NotNull]
-        [MinLength(1)]
-        [MaxLength(1)]
         public char Gender { get; set; }
         [Required]
         [NotNull]

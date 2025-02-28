@@ -25,9 +25,5 @@ namespace MedicalAppointment.Persistence.Repositories.Insurance
             _configuration = configuration;
         }
 
-        public Task<OperationResult> AssociatePatient(Patients patients, InsuranceProviders providers)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

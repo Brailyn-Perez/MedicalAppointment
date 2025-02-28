@@ -8,13 +8,7 @@ namespace MedicalAppointment.Domain.Entities.System
     {
         [Column("NotificationID")]
         [Key]
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int ID { get; set; }
-        [Required]
-        [NotNull]
-        [Range(1, int.MaxValue)]
         public int UserID { get; set; }
         [Required]
         [NotNull]
