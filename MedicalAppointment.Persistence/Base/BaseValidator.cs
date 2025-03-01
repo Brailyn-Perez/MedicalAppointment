@@ -17,7 +17,7 @@ namespace MedicalAppointment.Persistence.Base
             return operationResult;
         }
 
-        public static OperationResult ValidateNullData(dynamic data)
+        public static async Task<OperationResult> ValidateNullData(dynamic data)
         {
             OperationResult operationResult = new OperationResult();
             if (data == null)
@@ -29,7 +29,7 @@ namespace MedicalAppointment.Persistence.Base
             return data;
         }
 
-        public static OperationResult ValidateID(int id)
+        public static async Task<OperationResult> ValidateID(int id)
         {
             OperationResult operationResult = new OperationResult();
             if (id <= 0)

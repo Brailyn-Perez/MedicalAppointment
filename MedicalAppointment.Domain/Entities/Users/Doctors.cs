@@ -10,6 +10,7 @@ namespace MedicalAppointment.Domain.Entities.User.Users
     {
         [Column("DoctorID")]
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public Int16 SpecialtyID { get; set; }
         [Required]

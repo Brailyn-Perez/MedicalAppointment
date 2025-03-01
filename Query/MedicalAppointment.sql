@@ -23,7 +23,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [appointments].[Appointments](
-	[AppointmentID] [int] IDENTITY(1,1) NOT NULL,
+	[AppointmentID] [int] IDENTITY(1,1)  NOT NULL,
 	[PatientID] [int] NOT NULL,
 	[DoctorID] [int] NOT NULL,
 	[AppointmentDate] [datetime] NOT NULL,
@@ -91,7 +91,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [Insurance].[NetworkType](
-	[NetworkTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[NetworkTypeId] [int] IDENTITY(1,1)  NOT NULL,
 	[Name] [varchar](50) NOT NULL,
 	[Description] [varchar](255) NULL,
 	[CreatedAt] [datetime] NOT NULL,
@@ -109,7 +109,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [medical].[AvailabilityModes](
-	[SAvailabilityModeID] [smallint] IDENTITY(1,1) NOT NULL,
+	[SAvailabilityModeID] [smallint] IDENTITY(1,1)  NOT NULL,
 	[AvailabilityMode] [varchar](100) NOT NULL,
 	[CreatedAt] [datetime] NOT NULL,
 	[UpdatedAt] [datetime] NULL,
@@ -126,7 +126,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [medical].[MedicalRecords](
-	[RecordID] [int] IDENTITY(1,1) NOT NULL,
+	[RecordID] [int] IDENTITY(1,1)  NOT NULL,
 	[PatientID] [int] NOT NULL,
 	[DoctorID] [int] NOT NULL,
 	[Diagnosis] [text] NOT NULL,
@@ -146,7 +146,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [medical].[Specialties](
-	[SpecialtyID] [smallint] IDENTITY(1,1) NOT NULL,
+	[SpecialtyID] [smallint] IDENTITY(1,1)  NOT NULL,
 	[SpecialtyName] [varchar](100) NOT NULL,
 	[CreatedAt] [datetime] NOT NULL,
 	[UpdatedAt] [datetime] NULL,
@@ -163,7 +163,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [system].[Notifications](
-	[NotificationID] [int] IDENTITY(1,1) NOT NULL,
+	[NotificationID] [int] IDENTITY(1,1)  NOT NULL,
 	[UserID] [int] NOT NULL,
 	[Message] [text] NOT NULL,
 	[SentAt] [datetime] NULL,
@@ -179,7 +179,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [system].[Roles](
-	[RoleID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleID] [int] IDENTITY(1,1)  NOT NULL,
 	[RoleName] [varchar](50) NOT NULL,
 	[CreatedAt] [datetime] NOT NULL,
 	[UpdatedAt] [datetime] NULL,
@@ -196,7 +196,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [system].[Status](
-	[StatusID] [int] IDENTITY(1,1) NOT NULL,
+	[StatusID] [int] IDENTITY(1,1)  NOT NULL,
 	[StatusName] [varchar](50) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
@@ -210,7 +210,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [users].[Doctors](
-	[DoctorID] [int] NOT NULL,
+	[DoctorID] [int]  NOT NULL,
 	[SpecialtyID] [smallint] NOT NULL,
 	[LicenseNumber] [varchar](50) NOT NULL,
 	[PhoneNumber] [varchar](15) NOT NULL,
@@ -261,7 +261,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [users].[Users](
-	[UserID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] IDENTITY(1,1)  NOT NULL,
 	[FirstName] [varchar](100) NOT NULL,
 	[LastName] [varchar](100) NOT NULL,
 	[Email] [varchar](255) NOT NULL,

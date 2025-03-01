@@ -21,7 +21,7 @@ namespace MedicalAppointment.Persistence.Base
 
         public virtual async Task<OperationResult> GetEntityByIdAsync(int id)
         {
-            Result = BaseValidator<TEntity>.ValidateID(id);
+            Result = await BaseValidator<TEntity>.ValidateID(id);
             if (Result.Success)
             {
                 Result.Data = await Entity.FindAsync(id);

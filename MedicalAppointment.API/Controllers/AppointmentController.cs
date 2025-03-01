@@ -1,4 +1,5 @@
-﻿using MedicalAppointment.Persistence.Interfaces.Appointments;
+﻿using MedicalAppointment.Domain.Base;
+using MedicalAppointment.Persistence.Interfaces.Appointments;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -39,14 +40,11 @@ namespace MedicalAppointment.API.Controllers
 
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] Domain.Entities.Appointments.Appointments appointments)
         {
-        }
-
-
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            appointments.AppointmentID = id;
+            var result = await _Repository.UpdateEntityAsync(appointments);
+            return StatusCode(StatusCodes.Status200OK, new { value = result });
         }
     }
 }
