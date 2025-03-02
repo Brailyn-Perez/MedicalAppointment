@@ -18,8 +18,8 @@ namespace MedicalAppointment.Domain.Entities.Appointments
         public int StatusID { get; set; }
 
 
-        public virtual  Patients Patient { get; set; }
-        public virtual Doctors Doctor { get; set; }
-        public virtual  Status Status { get; set; }
+        public Patients Patient { get; set; }
+        public Doctors Doctor { get; set; }
+        public Status Status { get; set; }
     }
 }

@@ -23,8 +23,8 @@ namespace MedicalAppointment.Domain.Entities.Medical
         [NotNull]
         public DateTime DateOfVisit { get; set; }
 
-        public virtual Patients Patient { get; set; }
-        public virtual Doctors Doctor { get; set; }
+        public Patients Patient { get; set; }
+        public Doctors Doctor { get; set; }
 
     }
 }

@@ -59,7 +59,24 @@ VALUES
 GO
 
 --10
+INSERT INTO [medical].MedicalRecords  (PatientID,DoctorID,Diagnosis,Treatment,DateOfVisit,CreatedAt,UpdatedAt)VALUES
+(1,1,'Gripe','Jarabe y vitamina c',GETDATE(),GETDATE(),null)
+GO
+
+--11
+INSERT INTO [appointments].DoctorAvailability (DoctorID,AvailableDate,StartTime,EndTime)
+VALUES
+(1,GETDATE(),GETDATE(),GETDATE())
+GO
+
+--12
 INSERT INTO [appointments].[Appointments] (PatientID, DoctorID, AppointmentDate, StatusID, CreatedAt)
 VALUES 
 (1, 1, '2025-03-10 10:00:00', 1, GETDATE())
+GO
+
+--13
+INSERT INTO [system].[Notifications] (UserID,Message,SentAt) 
+VALUES
+(1,'Mensaje de ejemplo',GETDATE())
 GO

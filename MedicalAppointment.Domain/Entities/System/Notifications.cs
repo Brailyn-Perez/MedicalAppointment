@@ -14,8 +14,8 @@ namespace MedicalAppointment.Domain.Entities.System
         [NotNull]
         [MinLength(5)]
         public string Message { get; set; }
-        public DateTime? SentAt { get; set; } 
+        public DateTime? SentAt { get; set; }
 
-        public virtual Users.Users User { get; set; }
+        public Users.Users User { get; set; }
     }
 }

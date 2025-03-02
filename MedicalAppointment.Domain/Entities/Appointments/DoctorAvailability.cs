@@ -21,7 +21,7 @@ namespace MedicalAppointment.Domain.Entities.Appointments
         [NotNull]
         public TimeSpan EndTime { get; set; }
 
-        public virtual Doctors Doctor { get; set; }
+        public Doctors Doctor { get; set; }
 
     }
 }

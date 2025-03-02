@@ -55,7 +55,7 @@ namespace MedicalAppointment.Domain.Entities.Insurance
         public decimal? MaxCoverageAmount { get; set; }  
 
 
-        public virtual NetworkType NetworkType { get; set; }
+        public  NetworkType NetworkType { get; set; }
 
     }
 

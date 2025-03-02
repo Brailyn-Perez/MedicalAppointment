@@ -24,9 +24,29 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
             _configuration = configuration;
         }
 
-        public override Task<OperationResult> SaveEntityAsync(Domain.Entities.Appointments.Appointments entity)
+        public override async Task<OperationResult> SaveEntityAsync(Domain.Entities.Appointments.Appointments entity)
         {
-            return base.SaveEntityAsync(entity);
+            OperationResult result = new OperationResult();
+            try
+            {
+                var existPatient = await _context.Patients.FirstOrDefaultAsync(x => x.PatientID == entity.PatientID);
+                var existDoctor = await _context.Doctors.FirstOrDefaultAsync(x => x.Id == entity.DoctorID);
+                var existStatus = await _context.Status.FirstOrDefaultAsync(x => x.Id == entity.StatusID);
+
+                if (existPatient == null || existDoctor == null || existStatus == null)
+                {
+                    result.Success = false;
+                    result.Message = "Patient or Doctor Doent exist";
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Message = _configuration["ErrorSaveEntityAsync:Appointments"];
+                _logger.LogError(ex.Message , result.Message);
+            }
+
+            return await base.SaveEntityAsync(entity);
         }
 
         public override async Task<OperationResult> UpdateEntityAsync(Domain.Entities.Appointments.Appointments entity)
@@ -42,7 +62,7 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
                 return isValidID;
 
             var exist = await base.ExistsAsync(x => x.AppointmentID == entity.AppointmentID);
-            if(exist)
+            if (exist)
                 return await base.UpdateEntityAsync(entity);
             else
             {
@@ -56,6 +76,7 @@ namespace MedicalAppointment.Persistence.Repositories.Appointments
         {
             return await _context.Appointments
                 .Include(x => x.Patient)
+                .ThenInclude(x => x.InsuranceProvider)
                 .Include(x => x.Doctor)
                 .Include(x => x.Status)
                 .ToListAsync();
